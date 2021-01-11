@@ -1,0 +1,9 @@
+az group create --name testappejp01-rg --location centralus 
+
+az appservice plan create --name testappejp01-sp --resource-group testappejp01-rg --sku FREE 
+
+az webapp create --name testappejp01 --resource-group testappejp01-rg --plan testappejp01-sp
+
+az webapp deployment source config --name testappejp01 --resource-group testappejp01-rg --repo-url https://github.com/EricJPogue/HelloWorldHTML.git --branch master
+
+
