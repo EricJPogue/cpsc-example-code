@@ -1,0 +1,9 @@
+[
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://my-information-ejp.azurewebsites.net/my-info.json" },
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://my-information-ejp.azurewebsites.net/flash-gordon.json" },
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://my-information-ejp.azurewebsites.net/no-preferred-name.json" },
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://my-information-ejp.azurewebsites.net/too-short-a-last-name.json" },
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://thunderbird-data.azurewebsites.net/ldw6txsjg5.json" },
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://thunderbird-data.azurewebsites.net/ldw6txsjg6.json" },
+    { "Name":"Eric Pogue", "Email":"epogue@lewisu.edu", "ContactURL":"https://thunderbird-data.azurewebsites.net/ldw6txsjg7.json" }  
+ ]

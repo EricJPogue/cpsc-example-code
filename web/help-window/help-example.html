@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="help-example.css">
+    <script src="help-example.js"></script>
+</head>
+<body onload="openHelp()">
+    <h2>Help Example</h2>
+    <p>Also see <a href="https://www.w3schools.com/howto/howto_css_modals.asp" target="_blank">How To Create a Modal Box</a> from W3C.</p>
+    
+    <button onclick="openHelp()" id="myBtn">Open Help</button><br>
+
+    <!-- Help Information for Modal Window -->
+    <div id="helpID" class="help">
+        <!-- Help content -->
+        <div class="help-content">
+            <span onclick="closeHelp()" class="close">&times;</span>
+            <h2>Help Header Text </h2>
+            <p>Add your own help text here.</p>
+            <button onclick="closeHelp()" >Close Help</button>
+        </div>
+    </div>
+</body>
+</html>

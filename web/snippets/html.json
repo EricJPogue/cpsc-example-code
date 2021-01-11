@@ -1,0 +1,41 @@
+{
+
+	"New Application": {
+		"prefix": ".n",
+		"body": [
+            "<!doctype html>",
+            "<html lang=\"en\">",
+            "<!--",
+            "    Author: ${1:Eric Pogue}",
+            "-->",
+            "<head>",
+            "    <meta charset=\"UTF-8\">",
+            "    <title>${2:application name}</title>",
+            "</head>",
+            "<body>",
+            "    <h1>${2:application name} - ${1:Eric Pogue}</h1>",
+            "    $0",
+            "</body>",
+            "</html>"
+		],
+		"description": "New HTML Application"
+	},
+
+	"Print to console": {
+		"prefix": ".l",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+
+    "Add hyperlink": {
+        "prefix": ".a",
+        "body": [
+          "<a href=\"${1:url}\" target=\"_blank\">${2:description}</a>",
+          "$0"
+        ],
+        "description": "Add hyperlink"
+    }
+}

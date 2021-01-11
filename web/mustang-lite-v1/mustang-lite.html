@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Eric Pogue
+    Class:   Web & Distributed Programming 
+    Project: Mustang Lite
+    Description: This application is intended to be a reference implementatin for Mustang. Do not copy and past it into your code. 
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Mustang Lite</title>
+        <link rel="stylesheet" href="mustang-lite.css">
+        <script src="mustang-lite.js"></script>
+    </head>
+    <body onload="initApplication()">  
+        <h1>Mustang Lite v1.4</h1>         
+        <button onclick="loadIndex()">Load Index</button><br>
+        Index:<p id="indexID"></p>
+
+        <button onclick="loadContacts()">Load Contacts</button><br>
+        Contacts:<p id="contactsID"></p>
+
+        <button onclick="logContacts()">Log Contacts to Console</button><br>
+    </body>
+</html>

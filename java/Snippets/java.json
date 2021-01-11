@@ -1,0 +1,13 @@
+{
+    "New Application": {
+        "prefix": ".n",
+        "body": [
+            "public class ${1:file-name} {",
+            "    public static void main(String[] args) {",
+            "        System.out.println(\"Starting ${1:file-name}...\");$0",
+            "    }",
+            "}"
+        ],
+        "description": "New Java Application"
+    } 
+}

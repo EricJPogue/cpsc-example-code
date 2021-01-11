@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Eric Pogue
+    Class:   Web & Distributed Programming 
+    Description: Eric's sample Dice Roller application.
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Potpourri</title>
+        <link rel="stylesheet" href="potpourri.css">
+        <script src="potpourri.js"></script>
+    </head>
+    <body>
+        <button type="button" onclick="RollSixSidedDice()">Roll Dice</button><br><br>
+        Six Sided Dice: <input id="dice" type="text" value="" size="5" disabled><br><br>
+
+        X: <input id="xID" type="text" value="1" size="5"><br>
+        Y: <input id="yID" type="text" value="1" size="5"><br>
+        <button type="button" onclick="DoCalculations()">Do Calculations</button><br><br>
+
+        Math Results:<p id="mathResultsID"></p>
+
+        <a href="https://www.w3schools.com/html/html_form_input_types.asp" target="_blank">Input Types (W3C)</a><br>
+        Number: <input type="number" name="quantity" min="0" max="9"><br>
+        Date: <input type="date" name="bday"><br>
+    </body>
+</html>

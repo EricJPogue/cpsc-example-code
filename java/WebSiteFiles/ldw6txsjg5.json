@@ -1,0 +1,13 @@
+{
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "preferredName": "Batman",
+    "email": "darknight@lewisu.edu",
+    "phoneNumber": "800-bat-mann",
+    "city": "Gothem",
+    "state": "NJ",
+    "zip": "07101",
+    "lat": "40.73",
+    "lng": "-74.17",
+    "favoriteHobby": "Flying"
+}

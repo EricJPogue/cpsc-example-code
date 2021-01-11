@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Eric Pogue
+    Class:   Web & Distributed Programming 
+    Project: Mustang v2 Lite
+    Session: su18-cpsc-24700-lt1
+    Description: This application is intended to be a reference implementatin for Mustang V2.
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Mustang v2 Lite</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="mustang-v2-lite.js"></script>
+    </head>
+    <body onload="initApplication()">
+        <h1>Mustang v2.2 Lite</h1> 
+            <table>
+            <tr>
+                <td>Name:</td>
+                <td> 
+                    <input id="nameID" type="text" value="" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input id="emailID" type="text" value="" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>
+                    <input id="cityID" type="text" value="" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td>
+                    <input id="stateID" type="text" value="" size="20" onkeypress="keyPressed()">
+                </td>
+            </tr>
+            <tr>
+                <td>Zip</td>
+                <td>
+                    <input id="zipID" type="text" value="" size="20" onfocus="zipFocusFunction()" onblur="zipBlurFunction()">
+                </td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="previous()">Previous</button></td>
+                <td><button type="button" autofocus onclick="next()">Next</button>
+                </td>
+            <tr>
+                <td><button type="button" onclick="add()">New</button></td>
+                <td><button type="button" onclick="remove()">Delete</button>
+            </td>
+            </tr>
+        </table>
+
+        <p id="statusID"></p>
+        <br><br><hr>
+        Data and Test Functions:<br>
+        Index:<p id="indexID"></p>
+        Contacts:<p id="contactsID"></p>
+    </body>
+</html>
