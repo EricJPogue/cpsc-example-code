@@ -39,7 +39,6 @@ class OvalFrame extends JFrame {
     OvalFrame() {
         setTitle("OvalDraw");
         setBounds(200,200,300,400);
-        setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Oval myOval = new Oval(0,255,255);
@@ -51,6 +50,10 @@ class OvalFrame extends JFrame {
 public class OvalDraw {
     public static void main(String[] args) {
         System.out.println("OvalDraw Starting...");
-        OvalFrame myFrame = new OvalFrame();
+		OvalFrame myFrame = new OvalFrame();
+
+		myFrame.setVisible(true);
+		// Note that if setVisible is called from the constructor, the oval will
+		// not draw initially on MacOS. 
     }
 }
