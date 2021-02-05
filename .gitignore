@@ -24,3 +24,6 @@ hs_err_pid*
 
 # MacOS generated file
 .DS_Store
+
+# Slides
+archive/2021-01-spring-cpsc/
