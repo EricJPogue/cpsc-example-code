@@ -1,3 +1,6 @@
+// Eric Pogue
+// All rights reserved.
+
 // Imports: In order of appearance. 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
