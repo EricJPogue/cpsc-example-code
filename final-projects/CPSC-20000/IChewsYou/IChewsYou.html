@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Kasey Kane and Sarah Breslin-->
+<head>
+    <meta charset="UTF-8">
+    <title>IChewsYou</title>
+</head>
+<body style='background-color:rgba(10, 218, 255, 0.473); border-style: double;'>
+    <h1 style='color:rgb(75, 75, 75); text-align:center;'>IChewsYou --- A Simple, Easy Way to Find the Perfect Dog!</h1>
+    <h4 style='text-align:center;'>  
+        Hi, and welcome to I Chews You! This app helps you meet your four-legged best friend. 
+        To operate the app, the user must answer a series of questions that will later match them with a dog that best suits their wants and lifestyle. 
+
+        <br /><br />
+        If you have any questions, feel free to reach out to us! We can assist you with finding shelters or getting information about these dog breeds. 
+        </h4>
+    <center>
+        <img src="dogs-image.png" alt="centered image" width="300" height="370"/>
+    </center> 
+    <br /><br />
+    <label> What is your personality type?</label>
+    <select id='q1'>
+        <option value='2'>Extrovert</option>
+        <option value='1'>Introvert</option>
+    </select>
+
+    <br /><br />
+
+    <label> What size would you prefer for your dog?</label>
+    <select id='q2'>
+        <option value='2'>Large (40 pounds or more)</option>
+        <option value='1'>Small (39 pounds or less)</option>
+    </select>
+
+    <br /><br />
+
+    <label> Would you want your dog to have a high energy levels and playfulness?</label>
+    <select id='q3'>
+        <option value='2'>Yes, high energy!</option>
+        <option value='1'>No, lower energy. </option>
+    </select>
+    <br /><br />
+
+    <label> Are you willing to spend time to groom your animal?</label>
+    <select id='q4'>
+        <option value='2'>Yes!</option>
+        <option value='1'>No!</option>
+    </select>
+    <br /><br />
+
+    <button onclick='calculatePuppyScores()'>Get matched!</button>
+    <p id='Puppy Score'> </p>
+
+<script>
+console.log('Start puppy compatibility!');
+function calculatePuppyScores() {
+    console.log('calculatePuppyScores()');
+
+//website used : https://dogtime.com/dog-breeds/profiles 
+    
+    const BEAGLE = 1122;
+    const BASSET_HOUND = 1111;
+    const CHIHUAHUA = 1121;
+    const FRENCHIE = 2111;
+    const LAB = 2221;
+    const GREYHOUND = 1221;
+    const GREAT_DANE = 2211;
+    const SHIBA_INU = 1211;
+    const BOSTON_TERRIER = 2121;
+    const HUSKY = 2222;
+    const SAINT_BERNARD = 2212;
+    const GREAT_PYRENEES = 1212;
+    const MALTESE = 1112;
+    const YORKIE = 2112;
+    const POMERANIAN = 2122;
+    const DOBERMAN = 1222;
+
+    //can add more dogs. Will likely need to add a description of each dog when match is generated.
+
+    let question1Response = document.getElementById('q1').selectedOptions[0].value;
+    let question2Response = document.getElementById('q2').selectedOptions[0].value;
+    let question3Response = document.getElementById('q3').selectedOptions[0].value;
+    let question4Response = document.getElementById('q4').selectedOptions[0].value;
+
+    
+    console.log('Question 1 Answers:');
+    console.log(document.getElementById('q1').selectedOptions[0].text);
+    console.log(document.getElementById('q1').selectedOptions[0].value);
+    console.log(question1Response);
+    
+    console.log('Question 2 Answers:');
+    console.log(document.getElementById('q2').selectedOptions[0].text);
+    console.log(document.getElementById('q2').selectedOptions[0].value);
+    console.log(question2Response);
+
+    console.log('Question 3 Answers:');
+    console.log(document.getElementById('q3').selectedOptions[0].text);
+    console.log(document.getElementById('q3').selectedOptions[0].value);
+    console.log(question3Response);
+
+    console.log('Question 4 Answers:');
+    console.log(document.getElementById('q4').selectedOptions[0].text);
+    console.log(document.getElementById('q4').selectedOptions[0].value);
+    console.log(question4Response);
+
+    let totalScore = question1Response + question2Response + question3Response + question4Response 
+    console.log('totalScore=' + totalScore);
+
+    let userOutput = 'Your match: ';
+    
+    if (totalScore == BASSET_HOUND) {
+      userOutput += 'Basset Hound. The basset hound is a friendly, easygoing dog. Fairly smart dogs, bassets are not easy to train as they are somewhat stubborn. A firm, patient hand with plenty of creativity is required to bring out the best in them!';
+    } else if (totalScore == SAINT_BERNARD) {
+        userOutput += 'Saint Bernard. This breed is calm, patient and sweet with adults, and especially children. They are very large dogs with hearts just as big!';
+    } else if (totalScore == BEAGLE) {
+       userOutput += 'Beagle. Active companions for kids and adults, beagles are fun loving and merry for the whole family. They do have a propensity to be stubborn and they can be more difficult to train, but these scenthounds will keep you moving as they love to be guided by their nose.';
+    } else if (totalScore == CHIHUAHUA) {
+       userOutput += 'Chihuahua. A top ten watchdog in the size of a teacup. These small dogs have large personalities and come in a variety of coats and colors. They are capable of agility and obedience and love nothing more than being with their humans. ';
+    } else if (totalScore == MALTESE) {
+       userOutput += 'Maltese. This glamorous dog treats everyone like their bestie. They are great companions and also excel as therapy dogs and competitors in sports like agility, obedience, rally, and tracking. With its white coat that reaches the ground, you’ll think your dog floats as they walk.';
+    } else if (totalScore == DOBERMAN) {
+       userOutput += 'Doberman. Originating in Germany as guard dogs, these sleek, muscular dogs perform well in military and police work, sports, or as family dogs. These dogs love exercise and respond very well to positive reinforcement!';
+    } else if (totalScore == FRENCHIE) {
+       userOutput += 'French Bulldog. The French bulldog is an even-tempered house dog that thrives on attention. They’re incredibly loving, affectionate, and easily trained!';
+    } else if (totalScore == BOSTON_TERRIER) {
+       userOutput += 'Boston Terrier. Known as the “American Gentleman” with their tuxedo-like markings, Boston Terriers were originally bred as fighting dogs. They are highly affectionate dogs who get along with just about anyone. You’ll be sure to have a new best friend!';
+    } else if (totalScore == LAB) {
+       userOutput += 'Labrador Retriever. Labs are extremely intelligent and get along with everyone! They’re a big ball of energy that would do well in a big yard with lots of room to run and play';
+    } else if (totalScore == YORKIE) {
+       userOutput += 'Yorkshire Terrier. Small in size, large in personality. These feisty dogs are the most popular toy dog breed in the US. They make great apartment pets, but have a tendency to be somewhat yappy. Providing lots of love, attention, care, and playtime, you’ll have a loving, adorable companion who’ll stick to you like your shadow!';
+    } else if (totalScore == HUSKY) {
+       userOutput += 'Siberian Husky. Huskies are classic northern dogs meaning they would prefer a colder climate. They are intelligent but somewhat independent and stubborn. They thrive on human company and are generally very well behaved around other animals!';
+    } else if (totalScore == SHIBA_INU) {
+       userOutput += 'Shiba Inu. Shiba Inu! Shibas are known for their spirited personality, small upright ears, and cat-like agility. Today they serve primarily as companion dogs in Japan and the United States.';
+    } else if (totalScore == GREYHOUND) {
+       userOutput += 'Greyhound. This smooth-coated creature is extremely active and is best known for their speed! Because of their skittish and anti-social demeanor, they would be best suited for someone living alone with a big yard!';
+    } else if (totalScore == GREAT_PYRENEES) {
+       userOutput += 'Great Pyrenees. The Great Pyrenees is a calm, well-mannered, serious dog known for his great devotion to family, including children. These dogs are generally trustworthy, affectionate and gentle!';
+    } else if (totalScore == GREAT_DANE) {
+       userOutput += 'Great Dane. This gentle giant is the epitome of “don’t judge a book by it’s cover”. Behind their extremely large build is the sweetest and laziest dog around! My advice would be to purchase the largest couch you can find.';
+    } else if (totalScore == POMERANIAN) {
+       userOutput += 'Pomeranian. This tiny dog commands a large presence. They are intelligent, great watchdogs, and content in both the city and suburbs. They would make a great family pet or tricks and games for their favorite human(s)!';
+    } else {
+       userOutput += 'Maybe you should consider a cat.';
+    } 
+
+    document.getElementById('Puppy Score').innerHTML = userOutput;
+
+}
+</script>
+
+<br /><br />
+<h4>Send e-mail to ichewsyou55@gmail.com:</h2>
+
+<form action="mailto: ichewsyou55@gmail.com" method="post" enctype="text/plain">
+Name:<br>
+<input type="text" name="name"><br>
+E-mail:<br>
+<input type="text" name="mail"><br>
+Comment:<br>
+<input type="text" name="comment" size="50"><br><br>
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>
+
+</body>
+</html>
+
+</body>
+</html>

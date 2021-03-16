@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  background: rgb(45, 30, 255);
+  display: flex;
+  color: white;
+  flex-direction: column;
+  font-family: sans-serif;
+  padding: 25px;
+  width: 100%;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  height: 700px;
+  margin: 10px 0 25px;
+  width: 700px;
+}
+
+.cell {
+  align-items: center;
+  background: yellow;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  width: 100px;
+}
+
+.cell::after {
+  background:  rgb(45, 30, 255);
+  border-radius: 50%;
+  border: 3px solid black;
+  content: '';
+  height: 75px;
+  width: 75px;
+}
+
+.cell:not(.row-top).black::after {
+  background: black;
+}
+.cell:not(.row-top).red::after {
+  background: red;
+}
+
+.cell:not(.row-top).black.win {
+  background: black;
+}
+
+.cell:not(.row-top).red.win {
+  background: red;
+}
+
+.cell.row-top {
+  background: rgb(45, 30, 255);
+}
+
+.cell.row-top::after {
+  border: none;
+}
+
+.cell.row-top.black::after {
+  background: black;
+  border: 3px solid black;
+}
+
+.cell.row-top.red::after {
+  background: red;
+  border: 3px solid black;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+}
+
+.reset {
+  background-color: slategray;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 30px;
+  text-transform: uppercase;
+}
+
+.status {
+  display: block;
+  font-size: 20px;
+}
+
+.left-border {
+  border-left: 3px solid black;
+}
+
+.top-border {
+  border-top: 3px solid black;
+}
+
+.right-border {
+  border-right: 3px solid black;
+}
+
+.bottom-border {
+  border-bottom: 3px solid black;
+}

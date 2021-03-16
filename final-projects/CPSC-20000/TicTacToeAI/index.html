@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<h1>Tic-Tac-Toe AI</h1>
+<h3>By Brindyn Schultz and Amin Al-Ashqar</h3>
+<hr>
+<!-- Start code from freeCodeCamp.org -->
+	<table>
+		<tr>
+			<td class="cell" id="0"></td>
+			<td class="cell" id="1"></td>
+			<td class="cell" id="2"></td>
+		</tr>
+		<tr>
+			<td class="cell" id="3"></td>
+			<td class="cell" id="4"></td>
+			<td class="cell" id="5"></td>
+		</tr>
+		<tr>
+			<td class="cell" id="6"></td>
+			<td class="cell" id="7"></td>
+			<td class="cell" id="8"></td>
+		</tr>
+	</table>
+	<div class="endgame">
+		<div class="text"></div>
+	</div>
+	<button onClick="startGame()">Replay</button>
+<style>
+td {
+	border:  2px solid #333;
+	height:  100px;
+	width:  100px;
+	text-align:  center;
+	vertical-align:  middle;
+	font-family:  "Comic Sans MS", cursive, sans-serif;
+	font-size:  70px;
+	cursor: pointer;
+}
+
+table {
+	border-collapse: collapse;
+	position: absolute;
+	left: 50%;
+	margin-left: -155px;
+	top: 150px;
+}
+
+table tr:first-child td {
+	border-top: 0;
+}
+
+table tr:last-child td {
+	border-bottom: 0;
+}
+
+table tr td:first-child {
+	border-left: 0;
+}
+
+table tr td:last-child {
+	border-right: 0;
+}
+
+.endgame {
+  display: none;
+  width: 200px;
+  top: 235px;
+  background-color: rgba(205,133,63, 0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 2em;
+}
+</style>
+<script>
+var origBoard;
+const huPlayer = 'O';
+const aiPlayer = 'X';
+const winCombos = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[6, 4, 2]
+]
+
+const cells = document.querySelectorAll('.cell');
+startGame();
+
+function startGame() {
+	document.querySelector(".endgame").style.display = "none";
+	origBoard = Array.from(Array(9).keys());
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].innerText = '';
+		cells[i].style.removeProperty('background-color');
+		cells[i].addEventListener('click', turnClick, false);
+	}
+}
+
+function turnClick(square) {
+	if (typeof origBoard[square.target.id] == 'number') {
+		turn(square.target.id, huPlayer)
+		if (!checkWin(origBoard, huPlayer) && !checkTie()) turn(bestSpot(), aiPlayer);
+	}
+}
+
+function turn(squareId, player) {
+	origBoard[squareId] = player;
+	document.getElementById(squareId).innerText = player;
+	let gameWon = checkWin(origBoard, player)
+	if (gameWon) gameOver(gameWon)
+}
+
+function checkWin(board, player) {
+	let plays = board.reduce((a, e, i) =>
+		(e === player) ? a.concat(i) : a, []);
+	let gameWon = null;
+	for (let [index, win] of winCombos.entries()) {
+		if (win.every(elem => plays.indexOf(elem) > -1)) {
+			gameWon = {index: index, player: player};
+			break;
+		}
+	}
+	return gameWon;
+}
+
+function gameOver(gameWon) {
+	for (let index of winCombos[gameWon.index]) {
+		document.getElementById(index).style.backgroundColor =
+			gameWon.player == huPlayer ? "blue" : "red";
+	}
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].removeEventListener('click', turnClick, false);
+	}
+	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+}
+
+function declareWinner(who) {
+	document.querySelector(".endgame").style.display = "block";
+	document.querySelector(".endgame .text").innerText = who;
+}
+
+function emptySquares() {
+	return origBoard.filter(s => typeof s == 'number');
+}
+
+function bestSpot() {
+	return minimaxAlgorithm(origBoard, aiPlayer).index;
+}
+
+function checkTie() {
+	if (emptySquares().length == 0) {
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].style.backgroundColor = "green";
+			cells[i].removeEventListener('click', turnClick, false);
+		}
+		declareWinner("Tie Game!")
+		return true;
+	}
+	return false;
+}
+
+// End code from freeCodeCamp.org
+
+function minimaxAlgorithm(board, player)
+{
+	var availableSpots = emptySquares();
+	var moves = [];
+	var bestMove;
+	if (checkWin(board, huPlayer))
+	{
+		return {score: -10};
+	}
+	else if (checkWin(board, aiPlayer))
+	{
+		return {score: 10};
+	}
+	else if (availableSpots.length === 0)
+	{
+		return {score: 0};
+	}
+	for (var i = 0; i < availableSpots.length; i++)
+	{
+		var move = {};
+		move.index = board[availableSpots[i]];
+		board[availableSpots[i]] = player;
+
+		if (player == aiPlayer)
+		{
+			var result = minimaxAlgorithm(board, huPlayer);
+			move.score = result.score;
+		}
+		else
+		{
+			var result = minimaxAlgorithm(board, aiPlayer);
+			move.score = result.score;
+		}
+
+		board[availableSpots[i]] = move.index;
+
+		moves.push(move);
+	}
+	if(player === aiPlayer)
+	{
+		var bestScore = -10000;
+		for(var i = 0; i < moves.length; i++)
+		{
+			if (moves[i].score > bestScore)
+			{
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	}
+	else
+	{
+		var bestScore = 10000;
+		for(var i = 0; i < moves.length; i++)
+		{
+			if (moves[i].score < bestScore)
+			{
+				bestScore = moves[i].score;
+				bestMove = i;
+			}
+		}
+	}
+	return moves[bestMove];
+}
+// Credit to Puneet Singh and Lauren Gernes for help with AI Minimax Algorithm
+</script>
+</body>
+</html>

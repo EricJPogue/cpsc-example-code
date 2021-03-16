@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>final-project-building-a-web-application-using-HTML/CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+
+
+<style>
+body {background-color: aliceblue;
+      font-family: arial}
+
+h1   {border-style: groove;
+      border-width: 7px;
+      border-color: coral;}
+      {color: darkorchid;}
+
+h2   {font-family: arial;
+      font-size: 150%; }
+
+
+p    {color: black;
+      font-family: arial;
+      font-size: 100%;}
+
+li   {font-family: courier;
+      font-size: 100%;}
+
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button.hover {
+  background-color: #ddd;
+}
+
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+</style>
+</body>
+</head>
+
+<h1 style="text-align:center;">HTML: A Beginner's Cheatsheet to Creating a Web App</h1>
+
+<div class="tab">
+  <button class="tablinks" onclick="openArea(event, 'Home')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openArea(event, 'Start/Close File')">Start/Close File</button>
+  <button class="tablinks" onclick="openArea(event, 'Headings/Paragraphs')">Headings/Paragraphs</button>
+  <button class="tablinks" onclick="openArea(event, 'Links/Images')">Links/Images</button>
+  <button class="tablinks" onclick="openArea(event, 'Organization')">Organization</button>
+  <button class="tablinks" onclick="openArea(event, 'Styling')">Styling</button>
+</div>
+
+
+<div id="Home" class="tabcontent"
+  <br>
+  <p>I wanted to create this website for those who have never made a web app using HTML before. I can relate to those who are intimidated by using coding for the first time. I had to always ask for help and have several tabs open on my browser to find what I was looking for. Here is a little cheatsheet for your convience. You can use Visual Studio Code or Notepad (for Windows). My examples will be done in Windows Notepad. Please note that this web app will go over the basics on how to create a web app.</p>
+  <h2 style="font-size:150%;">Areas to Cover</h2>
+  <ul style="list-style-type:square;">
+    <li>How to start and close the file</li>
+    <li>Headings and Paragraphs</li>
+    <li>Links and Images</li>
+    <li>Organization</li>
+    <li>Styling</li>
+  </ul>
+  <h2 style="font-size:150%;">Key Notes</h2>
+  <ul style="list-style-type:square;">
+    <li>Save your file OFTEN.</li>
+    <li>Reload your Web app to see changes immediately after saving the HTML file.</li>
+    <li>Save an extra copy of the file for emergencies.</li>
+    <li>If you cannot figure out where something went wrong, look online or ask a friend for a pair of fresh eyes.</li>
+    <li>Stay calm. I know it can be very intimidating, but you will learn!</li>
+  </ul>
+</div>
+
+<div id="Start/Close File" class="tabcontent"
+  <br>
+  <h2 style="font-size:150%;">How to Start and Close an HTML file</h2>
+  <p>When starting of an HTML document on Visual Studio Code or in Notepad, the first few lines should be typed:
+    <br>
+    <br>
+  <img src="startAndcloseScreeshot.jpg" alt="Start/Close" style=width:250px;>
+    <br>
+    <br>
+    Did you notice a partner? Let me break that pattern down.
+    <br>
+    <br>
+   <img src="startAndcloseScreeshot2.jpg" alt="Start/Close" style=width:650px;>
+   <br>
+   <br>
+   Using a blackslash (/) before the tagname signifies you are closing this element. When you save this file, save it as .html
+   <br>
+  <br>
+   Now, when you double-click this file in File-Explorer, it will open the HTML doc on a web browser. To change the title of the tab, change the content in your title element.
+  </p>
+</div>
+
+<div id="Headings/Paragraphs" class="tabcontent"
+  <br>
+  <h2 style="font-size:150%;">How to Create Headings and Paragraphs</h2>
+  <p>Now that you have learned how to create elements through the use of tagnames, let's create a heading and a paragraph:
+    <br>
+    <br>
+    <img src="headingAndparagraphs.jpg"  alt="Headings/Paragraphs" style=width:800px;> 
+    <br>
+    <br>
+    Once you save it, this is what it will look like:
+    <br>
+    <br>
+    <img src="headingAndparagraphs2.jpg"  alt="Headings/Paragraphs" style=width:800px;>
+    <br>
+    <br>
+    Once you start to add more headings and paragraphs, make sure to adjust the tagnames. HTML recognizes six different headings (h1-h6), and the number is associated with a priority. The first heading (h1) will be larger than the second heading (h2). This pattern will continue all the way down to the sixth heading (h6), if used.
+    <br>
+    <br>
+    Your code will look as follows:
+    <br>
+    <br>
+    <img src="headingAndparagraphs3.jpg" alt="Headings/Paragraphs" style=width:800px;>
+    <br>
+    <br>
+    Once saved, your web app will look like this:
+    <br>
+    <br>
+    <img src="headingAndparagraphs4.jpg" alt="Headings/Paragraphs" style=width:800px;>
+    <br>
+    <br>
+    Now that you have seen what the different headings and their paragraphs will look like, pick whichever ones fit your liking.
+  </p>
+</div>
+
+<div id="Links/Images" class="tabcontent"
+  <br>
+  <h2 style="font-size:150%;">How to Add Links and Images to Your Web app</h2>
+  <p>I used another HTML guide-line link for this example. To add a link, follow the image down below:
+    <br>
+    <br>
+    <img src="linksAndimages.jpg"  alt="Links/Images" style=width:800px;> 
+    <br>Once you save it, this is what it will look like:<br>
+    <br>
+    <img src="linksAndimages2.jpg"  alt="Links/Images" style=width:600px;>
+    <br>
+    <br>
+    When adding an image to your webpage, make sure that the image is saved as a .jpg in the same file folder your HTML file is saved in.
+    <br>
+    <br>
+    Your code will look as follows:
+    <br>
+    <br>
+    <img src="nameOfimageFile.jpg" alt="Links/Images" style=width:800px;>
+    <br>
+    <br>
+    Once saved, your web app will look like this:
+    <br>
+    <br>
+    <img src="linksAndimages3.jpg" alt="Links/Images" style=width:800px;>
+    <br>
+    <br>
+  </p>
+</div>
+
+
+<div id="Organization" class="tabcontent"
+  <br>
+  <h2 style="font-size:150%;">How to Organize Your Web app: Tables and Lists</h2>
+  <p>Tables and lists are common functions used in a webpage to help organize content. An example of each can be found below.
+    <br>
+    <br>
+    This is what your code will look like for a table:
+    <br>
+    <br>
+    <img src="oragnization.jpg"  alt="Organization" style=width:400px;> 
+    <br>Once you save it, this is what it will look like:<br>
+    <br>
+    <img src="oragnization2.jpg"  alt="Organizations" style=width:1000px;>
+    <br>
+    <br>
+    Adding a list will help display informatoin in a non-clustered way.
+    <br>
+    <br>
+    Your code will look as follows:
+    <br>
+    <br>
+    <img src="organization3.jpg" alt="Organization" style=width:400px;>
+    <br>
+    <br>
+    Notice any difference? The unordered list tagname is ul while an ordered list tagname is ol.
+    <br>
+    <br>
+    Once saved, your list will look like this:
+    <br>
+    <br>
+    <img src="oragnization4.jpg" alt="Organization" style=width:400px;>
+    <br>
+    <br>
+  </p>
+</div>
+
+<div id="Styling" class="tabcontent"
+  <br>
+  <h2 style="font-size:150%;">How to Style</h2>
+  <p>Examples of styling your text can be found below.
+    <br>
+    <br>
+    Centering Text
+    <br>
+    <br>
+    <img src="styling.jpg"  alt="Styling" style=width:800px;> 
+    <br>
+    <br>
+    Once you save it, this is what it will look like:
+    <br>
+    <br>
+    <img src="styling2.jpg"  alt="Styling" style=width:700px;>
+    <br>
+    <br>
+    Changing Font Size, Color, and Style.
+    <br>
+    <br>
+    Your code will look as follows:
+    <br>
+    <br>
+    <img src="styling3.jpg" alt="Styling" style=width:600px;>
+    <br>
+    <br>
+    The elements with the tagname (br) stand for a line break. It will break the text into a new line. This will help your text look less clustered. Once saved, your web app will look like this:
+    <br>
+    <br>
+    <img src="styling4.jpg" alt="Styling" style=width:800px;>
+    <br>
+    <br>
+  </p>
+</div>
+
+<script>
+  function openArea(evt, area) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(area).style.display = "block";
+    evt.currentTarget.className += " active";
+    }
+
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html> 
+   

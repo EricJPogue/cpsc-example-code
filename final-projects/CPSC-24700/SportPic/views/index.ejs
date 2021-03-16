@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Spot Pic</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <script>
+  let map;
+  var addedMarkers = [];
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: {"lat": 39.8283, "lng": -98.5795}, zoom: 3, mapTypeId: "roadmap",});
+
+      const input = document.getElementById("pac-input");
+      const searchBox = new google.maps.places.SearchBox(input);
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+      map.addListener("bounds_changed", () => {
+        searchBox.setBounds(map.getBounds());
+      });
+      let markers = [];
+      searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+    
+        if (places.length == 0) {
+          return;
+        }
+        // Clear out the old markers.
+        markers.forEach((marker) => {
+          marker.setMap(null);
+        });
+        markers = [];
+        // For each place, get the icon, name and location.
+        const bounds = new google.maps.LatLngBounds();
+        places.forEach((place) => {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+          }
+          const icon = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25),
+          };
+          // Create a marker for each place.
+          markers.push(
+            new google.maps.Marker({
+              map,
+              icon,
+              title: place.name,
+              position: place.geometry.location,
+            })
+          );
+    
+          if (place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+    
+     
+      //var addedMarkers = [];
+      var infoWindows = [];
+      var i = 0;
+
+      
+      google.maps.event.addListener(map, 'click', function(event) {
+
+        var marker;
+        var infowindow;
+        var domElement;
+
+        i++;
+        
+        domElement = document.createElement('div');
+        domElement.innerHTML = '<div id="content'+i+'"></div>';
+        console.log(domElement.innerHTML);
+
+        var infowindow = new google.maps.InfoWindow({
+        content: domElement
+        });
+        infoWindows.push(infowindow);
+        
+        
+        var marker = new google.maps.Marker({
+        position: event.latLng,
+        map: map,
+        });
+        addedMarkers.push(marker);
+
+        
+
+        google.maps.event.addListener(marker, 'click', function(evt) {
+        infowindow.open(map, marker);
+        })
+        google.maps.event.addListener(marker, 'dblclick', function(evt) {
+        infowindow.open(map, marker);
+        openForm(i);
+        })
+        google.maps.event.addListener(marker, 'rightclick', function(evt) {
+        marker.setMap(null);
+        })
+
+    });
+
+  }
+
+  function setMapOnAll(map) {
+        for (let i = 0; i < addedMarkers.length; i++) {
+          addedMarkers[i].setMap(map);
+        }
+      }
+    
+      function deleteMarkers() {
+        setMapOnAll(null);
+        addedMarkers = [];
+      }
+
+  var image = []
+  var p;
+  var loadFile = function(event) {
+  
+	image[p] = document.getElementById('output');
+  image[p].src = URL.createObjectURL(event.target.files[0]);
+  p++;
+};
+  function updateInfoWindow(marker, infowindow, newImg) {
+
+    var NewMarker = document.createElement('div');
+
+    NewMarker.innerHTML = (
+    '<div>' +
+    '<h1 id="heading">'+document.getElementById("locHeading").value+'</h1>' +
+    '<p id="body">Description: '+document.getElementById("locBody").value+'</p>' +
+    '<h3 id="visited">Last Visited: '+document.getElementById("lastVisited").value+'</h3>' +
+    '<p><img src="'+document.getElementById("output").src+'" width="125"></p>' +
+    '</div>'
+    );
+
+    console.log(NewMarker);
+    console.log(NewMarker.innerHTML);
+    var i = document.getElementById("count").value;
+
+    document.getElementById("content"+i+"").appendChild(NewMarker); 
+  }
+
+function openForm(i) {
+  document.getElementById("myForm").style.display = "block";
+  document.getElementById("count").value = i;
+}
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
+</script>
+
+  </head>
+  <body>
+    <h1>Spot Pic</h1>.
+    <div id="navBar">
+      <ul>
+        <li><p>Welcome to SpotPic.  Click the map to add markers.<br>
+          Places can be searched in the bar at the top of the map.<br>
+          Double click markers to fill them with pictures.<br>
+          Right click markers to delete them individually.
+        </p></li>
+      </ul>
+      <button class="clear" onclick="deleteMarkers()">Clear Markers</button>
+    </div>
+    <input
+      id="pac-input"
+      class="controls"
+      type="text"
+      placeholder="Search Box"
+    />
+
+    <div class="form-popup" id="myForm" >
+      <form class="form-container" id="markerInfoForm">
+        <h1>Add Location Details: </h1>
+
+        <input type="hidden" id="count" >
+        
+        <label for="locHeading"><b>Title</b></label>
+        <input type="text" placeholder="Title" id="locHeading" name="locHeading" required>
+    
+        <label for="locBody"><b>Content</b></label>
+        <input type="text" placeholder="Content" id="locBody" name="locBody" required>
+
+        <label for="lastVisited"><b>Last Visited Date</b></label>
+        <input type="text" placeholder="Last Visited" id="lastVisited" name="lastVisited" required>
+
+        <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+        <p><label class="fileInput" for="file" style="cursor: pointer;">Upload Image</label></p>
+        <p><img id="output" width="200" style="display: none;"/></p>
+
+        <button type="button" class="cancel" onclick="closeForm()">X</button>
+        <button type="button" class="btn" onclick="updateInfoWindow(), closeForm()">Add</button>
+      </form>
+    </div>
+
+    <div id="holder">
+    <div id="map"></div>
+    </div>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBakQhf28pYESmd_N5d76H8nkyoKHB4gwU&libraries=places,drawing,geometry&&callback=initMap"
+    async defer>
+    </script>
+  </body>
+</html>

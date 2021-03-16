@@ -1,0 +1,25 @@
+{
+  "name": "albert",
+  "version": "1.0.0",
+  "description": "albert final project",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpetrongellijr/loupetrongelli-node.git"
+  },
+  "author": "lou petrongelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lpetrongellijr/loupetrongelli-node/issues"
+  },
+  "homepage": "https://github.com/lpetrongellijr/loupetrongelli-node#readme"
+}
