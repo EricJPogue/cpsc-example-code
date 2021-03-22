@@ -1,0 +1,10 @@
+th {
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: left;
+    background-color: lightgrey;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
