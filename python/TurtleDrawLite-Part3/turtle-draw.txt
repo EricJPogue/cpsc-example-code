@@ -1,0 +1,46 @@
+green 36 29
+green -49 128
+green -16 36
+stop
+blue 54 71
+black -126 15
+black 180 177
+black -57 -82
+stop
+black -89 -50
+green -155 61
+red -78 -187
+blue 72 161
+stop
+green -160 -29
+red -103 192
+red -182 162
+red -15 145
+stop
+red 13 -97
+stop
+black 168 -197
+green 48 1
+blue 50 148
+green 102 -175
+black 133 -115
+black 52 -99
+stop
+red 130 136
+blue 39 -191
+green -58 -159
+stop
+green 53 139
+green 6 175
+green -138 82
+stop
+blue 87 33
+stop
+green 144 71
+black -57 72
+stop
+black -22 61
+blue 58 164
+stop
+red -45 26
+blue 107 110

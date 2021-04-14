@@ -1,7 +1,7 @@
 /******************************************************************************
  * Copyright (C) 2019 Eric Pogue.
  * 
- * This file is liscensed under the BSD-3-Clause
+ * This file is licensed under the BSD-3-Clause
  * 
  * You may use any part of the file as long as you give credit in your 
  * source code.
@@ -11,10 +11,10 @@
  import java.util.ArrayList;
 
 class ThunderbirdModel extends HttpRequest {
-    // Todo: Add the URL of the index file for your class here.
-    // Hint: Consider using "https://thunderbird-data.azurewebsites.net/url-list.json"
+    // Todo: ** Start Here ** and add the URL of the index file for your class here.
+    // Hint: Consider using "https://thunderbird-index.azurewebsites.net/w0a6zk195d.json"
 
-    private String indexURL = "https://thunderbird-data.azurewebsites.net/url-list.json";
+    private String indexURL = "[[YOUR-INDEX-FILE-URL-HERE]]";
     
     private ArrayList<ThunderbirdContact> contactList;
 
@@ -25,7 +25,7 @@ class ThunderbirdModel extends HttpRequest {
     public Boolean LoadIndex() {
         Boolean returnValue = false;
         if (readURL(indexURL)) {
-            // Look through the index JSON file for each URL and then creat a new Contact object.
+            // Look through the index JSON file for each URL and then create a new Contact object.
             for (String line : urlContent) {
                 String[] subString = line.split("\"");
                 // The substring after the 11 double-quote should be the URL.

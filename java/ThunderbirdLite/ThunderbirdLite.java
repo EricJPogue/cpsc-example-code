@@ -1,7 +1,7 @@
 /******************************************************************************
- * Copyright (C) 2019 Eric Pogue.
+ * Copyright (C) 2021 Eric Pogue.
  * 
- * This file and the ThunderbirdLite applciation is liscensed under the 
+ * This file and the ThunderbirdLite application is licensed under the 
  * BSD-3-Clause.
  * 
  * You may use any part of the file as long as you give credit in your 
@@ -19,7 +19,6 @@ import javax.swing.JButton;
 import java.awt.Container; 
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -85,7 +84,7 @@ class ContactTile extends JPanel {
         int stringY = (panelHeight/2)+30;
         if (contactInSeat != null) {
 
-            // ToDo: Dispay preferred name instead of first and last name. 
+            // ToDo: Display preferred name instead of first and last name. 
             String firstAndLastName = contactInSeat.getFirstName()+" "+contactInSeat.getLastName();
             g.drawString(firstAndLastName,stringX,stringY);
         }
