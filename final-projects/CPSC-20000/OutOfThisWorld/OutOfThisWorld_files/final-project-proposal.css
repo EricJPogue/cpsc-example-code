@@ -1,0 +1,40 @@
+body {background-color:lightskyblue}
+
+h1 {text-align: center; color: green;}
+
+.p1 {text-align: center; color: black; font-size: 30px; }
+
+.p2 {text-align: center; font-size: 20px;}
+
+h2 {text-align: center; color: red; font-size: 28px;}
+
+.p3 {text-align: center; color: black; margin-left:4cm; margin-right: 4cm; font-size: 18px;}
+
+h3 {text-align: center; font-size: 22px; color: forestgreen;}
+
+ul {text-align: center; font-size: 18px; list-style-type: square; list-style-position: inside;}
+
+h4 {text-align: center; font-size: 22px; color:yellow;}
+
+.p4 {text-align: center; margin-left:4cm; margin-right: 4cm; font-size: 18px;}
+
+h5 {text-align: center; font-size: 22px; color: mediumblue; list-style-type: square; 
+    list-style-position: inside;}
+
+h6 {text-align: center; font-size: 22px; color:chocolate; }
+
+.p5 {text-align: center; font-size: 19px;}
+
+.p7 {text-align:center ; font-size: 22px; color:darkgoldenrod}
+
+.p8 {text-align: center; font-size: 22px; color:firebrick;}
+
+.p9 {text-align: center; font-size: 22px; color:indianred;}
+
+.p10 {text-align: center; font-size: 22px; color: coral;}
+
+.p11 {text-align: center; font-size: 19px; color: rgb(111, 184, 3);}
+
+.p12 {text-align: center; font-size: 22px; color: magenta;}
+
+.p13 {text-align: center; font-size: 19px; color: maroon;}
