@@ -18,7 +18,6 @@ turtleScreen.setup(500, 500)
 turtleDrawLite = turtle.Turtle()
 turtleDrawLite.speed(10)
 turtleDrawLite.penup()
-
 print('Reading a text file line by line.')
 turtleDrawTextfile = open(TEXTFILENAME, 'r')
 line = turtleDrawTextfile.readline()

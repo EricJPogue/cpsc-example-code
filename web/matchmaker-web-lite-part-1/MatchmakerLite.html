@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    Author:  Eric Pogue
+    Project: MatchmakerWebLite
+	
+	All rights reserved.
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Matchmaker Lite</title>
+</head>
+
+<body>
+	<h1>Matchmaker Lite</h1>
+	<p>Instructions...</p>
+
+	<!-- Reference for HTML “option” tabs/fields: https://www.w3schools.com/tags/tag_option.asp -->
+
+	<label>Nickelback is the greatest rock band of all time.</label><br />
+	<select id="q1">
+		<option value="5">Strongly Agree</option>
+		<option value="4">Agree</option>
+		<option value="3">Neither agree nor disagree</option>
+		<option value="2">Disagree</option>
+		<option value="1">Strongly Disagree</option>
+	</select>
+	<br /><br />
+
+	<label>Android phones are better than iPhones.</label><br />
+	<select id="q2">
+		<option value="5">Strongly Agree</option>
+		<option value="4">Agree</option>
+		<option value="3">Neither agree nor disagree</option>
+		<option value="2">Disagree</option>
+		<option value="1">Strongly Disagree</option>
+	</select>
+
+	<br /><br /><br />
+	<button onclick="calculateCompatibility()">Calculate Compatibility</button>
+	<p id="compatibility"></p>
+
+<script>
+console.log("Starting Matchmaker Lite...");
+
+function calculateCompatibility() {
+	console.log("calculateCompatibility()");
+
+	document.getElementById("compatibility").innerHTML = "Your compatibility is...";
+}
+
+</script>
+</body>
+</html>
