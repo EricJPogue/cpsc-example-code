@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+    Author:  Eric Pogue
+    Project: Health Insurance Risk Calculator for the Web
+	
+	All rights reserved.
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Risk Calculator</title>
+</head>
+
+<body>
+	<h1>Health Insurance Risk Calculator</h1>
+	<p>[[ Your Instructions here ]]</p>
+
+	<label>What is your current age?</label><br />
+	<select id="ageID">
+		<option value="0">Less than 30</option>
+		<option value="10">30 to 45</option>
+		<option value="20">45 to 60</option>
+		<option value="30">Greater than 60</option>
+	</select>
+	<br /><br />
+
+
+	<label>What is your BMI?</label><br />
+	<select id="bmiID">
+		<option value="0">normal</option>
+		<option value="30">overweight</option>
+		<option value="75">other</option>
+	</select>
+	<p>**This is not the correct way to calculate BMI. Instead you should ask for height in feet/inches, weight in lbs, 
+		convert both to meters and kg, and then calculate BMI.</p>
+	<br /><br />
+
+	<label>What is your blood pressure?</label><br />
+	<select id="bloodPressureID">
+		<option value="0">normal</option>
+		<option value="15">elevated</option>
+		<option value="30">stage 1</option>
+		<option value="75">stage 2</option>
+		<option value="100">crisis</option>
+	</select>
+	<p>**This is an adequate way to identify blood pressure. The instructions and/or messages need to be improved.</p>
+	<br /><br />
+
+	<label>Do you have diabetes?</label><br />
+	<select id="diabetesID">
+		<option value="0">no</option>
+		<option value="10">yes</option>
+	</select>
+	<br /><br />
+
+	<label>Do you have cancer?</label><br />
+	<select id="cancerID">
+		<option value="0">no</option>
+		<option value="10">yes</option>
+	</select>
+	<br /><br />
+
+	<label>Do you have Alzheimer’s?</label><br />
+	<select id="alzheimersID">
+		<option value="0">no</option>
+		<option value="10">yes</option>
+	</select>
+
+	<br /><br /><br />
+
+	<button onclick="calculateRisk()">Calculate Risk</button>
+	<p id="riskID"></p>
+
+<script>
+console.log("starting Health Insurance Risk Calculator... ");
+
+function calculateRisk() {
+	console.log("calculateRisk()");
+
+	// Get the current age value.
+	let ageResponseValue = parseInt(document.getElementById("ageID").selectedOptions[0].value);
+	console.log("ageResponseValue = " + ageResponseValue);
+
+	// Get the bmi value.
+	// Todo: This is currently wrong in that we should ask for height (in ft and inches) and weight (lbs) and calculate 
+	// BMI which requires height in meters and weight in kg.
+	let bmiResponseValue = parseInt(document.getElementById("bmiID").selectedOptions[0].value);
+	console.log("bmiResponseValue = " + bmiResponseValue);
+
+	// Get the blood pressure value.
+	// Todo: This is currently wrong in that we should a more user friendly question to request blood pressure.
+	let bloodPressureResponseValue = parseInt(document.getElementById("bloodPressureID").selectedOptions[0].value);
+	console.log("bloodPressureResponseValue = " + bloodPressureResponseValue);
+
+	// Get the diabetes value.
+	let diabetesResponseValue = parseInt(document.getElementById("diabetesID").selectedOptions[0].value);
+	console.log("alzheimers = " + diabetesResponseValue);
+
+	// Get the cancer value.
+	let cancerResponseValue = parseInt(document.getElementById("cancerID").selectedOptions[0].value);
+	console.log("cancerResponseValue = " + cancerResponseValue);
+
+	// Get the alzheimers value.
+	let alzheimersResponseValue = parseInt(document.getElementById("alzheimersID").selectedOptions[0].value);
+	console.log("alzheimersResponseValue = " + alzheimersResponseValue);
+
+	// Calculate total risk. 
+	let totalRisk = ageResponseValue + bmiResponseValue + bloodPressureResponseValue + diabetesResponseValue + cancerResponseValue + alzheimersResponseValue;
+	console.log("totalRisk = " + totalRisk)
+
+	document.getElementById("riskID").innerHTML = "Your total risk is: " + totalRisk;
+}
+
+</script>
+</body>
+</html>
