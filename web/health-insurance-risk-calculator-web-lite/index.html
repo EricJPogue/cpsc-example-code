@@ -72,6 +72,7 @@
 
 	<button onclick="calculateRisk()">Calculate Risk</button>
 	<p id="riskID"></p>
+	<p id="messageID"></p>
 
 	<br /><br /><br /><br />
 	
@@ -109,6 +110,8 @@
 
 	<button onclick="calculateBMI()">Calculate BMI</button>
 	<p id="bmiResultID"></p>
+
+	<p id="bmiMessageID"></p>
 
 
 <script>
@@ -149,6 +152,31 @@ function calculateRisk() {
 	console.log("totalRisk = " + totalRisk)
 
 	document.getElementById("riskID").innerHTML = "Your total risk is: " + totalRisk;
+
+	// Determine the appropriate user message.
+	/*
+	Total Score and Risk Category:
+	<= 20		- low risk
+	<= 50		- moderate risk
+	<= 75		- high risk
+	else		- uninsurable
+	*/
+
+	let message = "uninsurable"
+	if (totalRisk <= 20) {
+		message = "low risk"
+	} else if (totalRisk <= 50) {
+		message = "moderate risk"
+	} else if (totalRisk <= 75) {
+		message = "high risk"
+	}
+
+
+	document.getElementById("messageID").innerHTML = message;
+
+
+
+
 }
 
 // Another way to calculate BMI
@@ -159,7 +187,6 @@ function BMI(height, weight) {
 }
 
 function calculateBMI() {
-
 	console.log("CalculateBMI()")
 	let heightValueInInches = parseInt(document.getElementById("heightID").selectedOptions[0].value);
 	let weightValueInLbs = parseInt(document.getElementById("weightID").selectedOptions[0].value);
@@ -175,6 +202,16 @@ function calculateBMI() {
 
 	document.getElementById("bmiResultID").innerHTML = "Your Body Mass Index (BMI) is: " + bmiValue;
 
+	let BMIMessage = ""
+	if (bmiValue < 24.9) {
+		BMIMessage = "Normal"
+	} else if (bmiValue < 29.9) {
+		BMIMessage = "Overweight"
+	} else {
+		BMIMessage = "Obese"
+	}
+
+	document.getElementById("bmiMessageID").innerHTML = BMIMessage;
 }
 
 </script>
