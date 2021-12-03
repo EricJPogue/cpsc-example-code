@@ -73,6 +73,44 @@
 	<button onclick="calculateRisk()">Calculate Risk</button>
 	<p id="riskID"></p>
 
+	<br /><br /><br /><br />
+	
+	<p>A better way to calculate BMI</p>
+	<label>What is your height in feet and inches</label><br />
+	<select id="heightID">
+		<option value="54">4'6" or shorter</option>
+		<option value="56">4'8"</option>
+		<option value="58">4'10"</option>
+		<option value="60">5'0"</option>
+		<option value="62">5'2"</option>	
+		<option value="64">5'4"</option>
+		<option value="66">5'6"</option>
+		<option value="68">5'8"</option>
+		<option value="70">5'10"</option>
+		<option value="72">6'0"</option>
+		<option value="74">6'2"</option>
+		<option value="76">6'4" or taller</option>
+		<option value="80">[**Maybe add more options**]</option>
+	</select>
+	<br><br />
+
+	<label>What is your approximate weight</label><br />
+	<select id="weightID">
+		<option value="90">90 lbs</option>
+		<option value="100">100 lbs</option>
+		<option value="110">110 lbs</option>
+		<option value="120">120 lbs</option>	
+		<option value="160">[Add more options here]</option>
+		<option value="180">170 lbs</option>
+		<option value="190">190 lbs</option>
+		<option value="200">200 lbs</option>
+		<option value="210">[Add more options here]</option>
+	</select><br /><br />
+
+	<button onclick="calculateBMI()">Calculate BMI</button>
+	<p id="bmiResultID"></p>
+
+
 <script>
 console.log("starting Health Insurance Risk Calculator... ");
 
@@ -111,6 +149,32 @@ function calculateRisk() {
 	console.log("totalRisk = " + totalRisk)
 
 	document.getElementById("riskID").innerHTML = "Your total risk is: " + totalRisk;
+}
+
+// Another way to calculate BMI
+// https://www.texasheart.org/heart-health/know-your-numbers/?gclid=Cj0KCQiAnaeNBhCUARIsABEee8X6GNr2vkGNgHQup9gFAZRF4mI_TxJ1GlvWJE_K43L0hfPdJyurY_QaAgtVEALw_wcB
+
+function BMI(height, weight) {
+	return (703 * weight) / (height * height)
+}
+
+function calculateBMI() {
+
+	console.log("CalculateBMI()")
+	let heightValueInInches = parseInt(document.getElementById("heightID").selectedOptions[0].value);
+	let weightValueInLbs = parseInt(document.getElementById("weightID").selectedOptions[0].value);
+
+	console.log("Height="+heightValueInInches+" and weight="+weightValueInLbs);
+
+	let bmiValue = BMI(heightValueInInches, weightValueInLbs)
+	console.log("BMI="+bmiValue)
+
+	// Round bmi to one decimal.
+	bmiValue = Math.round(bmiValue*10)/10
+	console.log("BMI="+bmiValue)
+
+	document.getElementById("bmiResultID").innerHTML = "Your Body Mass Index (BMI) is: " + bmiValue;
+
 }
 
 </script>
