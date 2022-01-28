@@ -162,21 +162,18 @@ function calculateRisk() {
 	else		- uninsurable
 	*/
 
-	let message = "uninsurable"
+	let message = ""
 	if (totalRisk <= 20) {
 		message = "low risk"
 	} else if (totalRisk <= 50) {
 		message = "moderate risk"
 	} else if (totalRisk <= 75) {
 		message = "high risk"
+	} else {
+		message = "uninsurable"
 	}
 
-
 	document.getElementById("messageID").innerHTML = message;
-
-
-
-
 }
 
 // Another way to calculate BMI

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Battle Turtles</title>
+    <header>Battle Turtles</header>
+    <link rel="stylesheet" href="TI.css">
+</head>
+<body>
+<h2 style="text-align: center;">OH NO! 5 turtles have entered the pond! it is your duty to find the TURTLES! However, you are only alloted 70 attempts to find them! CAN YOU DO IT?!?!</h2>
+<h1 style="text-align: center;">Instructions</h1>
+<h2 style="text-align: center;">Click "Start Game" and begin clicking on squares on the board. There are 100 spaces in total.</h2>
+<!--grid-->
+    <div class="grid grid-board"></div>
+<!--grid-->
+    <div class="hidden-info">
+        <button id="start">Start Game</button>
+    </div>
+    <p id="turtlesHitID"></p>
+    <p id="turtlesMissedID"></p>
+    <p id="endGameTextID"></p>
+    <p id="restartID"></p>
+</body>
+
+
+<script>
+    // makes sure all html is loaded before launching javascript
+document.addEventListener('DOMContentLoaded', () => {
+    const gridBoard = document.querySelector('.grid-board')
+    const turtle = document.querySelector('.turtle-container')
+    const startButton = document.querySelector('#start')
+    const turnDisplay = document.querySelector('#whose-go')
+    const infoDisplay = document.querySelector('#info')
+    const boardSquares = []
+    let isHorizontal = true
+    let isGameOver = false
+    let currentPlayer = 'user'
+    
+    const width = 10
+    
+    //create board
+    function createBoard(grid, squares) {
+        for (let i = 0; i < width* width; i++) {
+            const square = document.createElement('div')
+            square.dataset.id = i
+            grid.appendChild(square)
+            squares.push(square)
+        }
+    }
+    createBoard(gridBoard, boardSquares)
+    
+    // Turtle
+    const turtleArray = [
+        {
+            name: 'turtle',
+            directions: [
+                [0],[0]
+            ]
+        }
+    ]
+    
+    //draw the turtles in random locations
+    function generate(turtle) {
+        let randomDirection = Math.floor(Math.random() * turtle.directions.length)
+        let current = turtle.directions[randomDirection]
+        if (randomDirection === 0) direction = 1
+        if (randomDirection === 1) direction = 10
+        let randomStart = Math.abs(Math.floor(Math.random() * boardSquares.length - (turtle.directions[0].length * direction)))
+    
+        const isTaken = current.some(index => boardSquares[randomStart + index].classList.contains('taken'))
+
+    
+        if (!isTaken) current.forEach(index => boardSquares[randomStart + index].classList.add('taken',turtle.name))
+        else generate(turtle)
+    }
+    
+    generate(turtleArray[0])
+    generate(turtleArray[0])
+    generate(turtleArray[0])
+    generate(turtleArray[0])
+    generate(turtleArray[0])
+
+    //Game logic
+    
+    function playGame() {
+        if (isGameOver) return
+        if (currentPlayer === 'user') {
+            boardSquares.forEach(square => square.addEventListener('click', function(e) {
+                revealSquare(square)
+            }))
+        }
+           }
+    startButton.addEventListener('click', playGame)
+    
+    let hitCount = 0
+    let missCount = 0
+    function revealSquare(square) {
+        if (square.classList.contains('turtle')) {
+            hitCount++
+        }
+        else {
+            missCount++
+        }
+        if(square.classList.contains('taken')) {
+            square.classList.add('boom')
+            document.getElementById("turtlesHitID").innerHTML = "You've hit: " + hitCount
+        } else {
+            square.classList.add('miss')
+            document.getElementById("turtlesMissedID").innerHTML = "You've missed: " + missCount
+        }
+        checkForWins()
+        console.log("hit: " + hitCount)
+        console.log("miss: " + missCount)
+    }
+
+
+    function checkForWins() {
+        if (hitCount === 5) {
+            document.getElementById("endGameTextID").innerHTML = "You win!!!"
+            document.getElementById("restartID").innerHTML = "refresh webstite to restart :)"
+        }
+
+    
+        if (missCount === 70) {
+            document.getElementById("endGameTextID").innerHTML = "You lose..."
+            document.getElementById("restartID").innerHTML = "refresh webstite to restart :)"
+        }
+    }
+
+    })
+
+   
+</script>
+</html>

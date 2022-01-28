@@ -1,0 +1,67 @@
+.grid div {
+    width: 40px;
+    height: 40px;
+}
+.grid-board {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightgreen;
+    margin: 20px;
+}
+.turtle-container {
+    width: 40px;
+    height: 40px;
+    background-color: lightgreen;
+    margin: 10px;
+    display: flex;
+} 
+.turtle {
+    background-color: lightgreen;
+}
+
+.boom
+{
+    background-color: red;
+}
+
+.miss
+{background-color: black}
+
+header {
+    background: green;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    font-family:Impact, Charcoal, sans-serif; 
+    border: white;
+  }
+  h1 {
+    color: white
+  }
+  h2 {
+    color: white
+  }
+
+  body {
+    background: linear-gradient(-45deg, black, green, black, green);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  p {
+    color: white;
+  }
