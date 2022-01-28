@@ -10,7 +10,7 @@ long FAR PASCAL WndProc (HWND, WORD, WORD, LONG) ;
 int PASCAL WinMain (HANDLE hInstance, HANDLE hPrevInstance,
                     LPSTR lpszCmdParam, int nCmdShow)
      {
-     static char szAppName[] = "HelloWin" ;
+     static char szAppName[] = "Hello World Windows" ;
      HWND        hwnd ;
      MSG         msg ;
      WNDCLASS    wndclass ;
