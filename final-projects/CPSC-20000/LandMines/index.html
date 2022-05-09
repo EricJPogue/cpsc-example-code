@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+Author Grant Gallagher
+Project: Landmines
+Purpose: Make a clone of Minesweeper
+-->
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="landmines.css">
+  <title>Landmines</title>
+</head>
+<body>
+  <h3 class="title">Landmines</h3>
+  <div class="subtext">
+    Mines Remaining: <span data-mine-count></span>
+  </div>
+  <div class="board"></div>
+<script>
+
+TILE_STATUSES = {
+    HIDDEN: "hidden",
+    MINE: "mine",
+    NUMBER: "number",
+    FLAGGED: "flagged",
+}
+
+function createBoard(boardSize, numberOfMines) {
+    const board = []
+    const minePositions = getMinePositions(boardSize, numberOfMines)
+  
+    for (let x = 0; x < boardSize; x++) {
+      const row = []
+      for (let y = 0; y < boardSize; y++) {
+        const element = document.createElement("div")
+        element.dataset.status = TILE_STATUSES.HIDDEN
+  
+        const tile = {
+          element,
+          x,
+          y,
+          mine: minePositions.some(positionMatch.bind(null, { x, y })),
+          get status() {
+            return this.element.dataset.status
+          },
+          set status(value) {
+            this.element.dataset.status = value
+          },
+        }
+  
+        row.push(tile)
+      }
+      board.push(row)
+    }
+  
+    return board
+  }
+
+function flagTile(tile) {
+    if (
+      tile.status !== TILE_STATUSES.HIDDEN &&
+      tile.status !== TILE_STATUSES.FLAGGED
+    ) {
+      return
+    }
+  
+    if (tile.status === TILE_STATUSES.FLAGGED) {
+      tile.status = TILE_STATUSES.HIDDEN
+    } else {
+      tile.status = TILE_STATUSES.FLAGGED
+    }
+  }
+
+function revealTile(board, tile) {
+    if (tile.status !== TILE_STATUSES.HIDDEN) {
+      return
+    }
+  
+    if (tile.mine) {
+      tile.status = TILE_STATUSES.MINE
+      return
+    }
+  
+    tile.status = TILE_STATUSES.NUMBER
+    const adjacentTiles = nearbyTiles(board, tile)
+    const mines = adjacentTiles.filter(t => t.mine)
+    if (mines.length === 0) {
+      adjacentTiles.forEach(revealTile.bind(null, board))
+    } else {
+      tile.element.textContent = mines.length
+    }
+  }
+
+function checkWin(board) {
+    return board.every(row => {
+      return row.every(tile => {
+        return (
+          tile.status === TILE_STATUSES.NUMBER ||
+          (tile.mine &&
+            (tile.status === TILE_STATUSES.HIDDEN ||
+              tile.status === TILE_STATUSES.FLAGGED))
+        )
+      })
+    })
+  }
+function checkLose(board) {
+    return board.some(row => {
+      return row.some(tile => {
+        return tile.status === TILE_STATUSES.MINE
+      })
+    })
+  }
+  
+function getMinePositions(boardSize, numberOfMines) {
+    const positions = []
+//randomized mine position  
+    while (positions.length < numberOfMines) {
+      const position = {
+        x: randomNumber(boardSize),
+        y: randomNumber(boardSize),
+      }
+  
+      if (!positions.some(positionMatch.bind(null, position))) {
+        positions.push(position)
+      }
+    }
+  
+    return positions
+  }
+  
+function positionMatch(a, b) {
+    return a.x === b.x && a.y === b.y
+  }
+  
+function randomNumber(size) {
+    return Math.floor(Math.random() * size)
+  }
+  
+function nearbyTiles(board, { x, y }) {
+    const tiles = []
+  
+    for (let xOffset = -1; xOffset <= 1; xOffset++) {
+      for (let yOffset = -1; yOffset <= 1; yOffset++) {
+        const tile = board[x + xOffset]?.[y + yOffset]
+        if (tile) tiles.push(tile)
+      }
+    }
+  
+    return tiles
+  }
+
+///Display
+
+const BOARD_SIZE = 10
+  const NUMBER_OF_MINES = 10
+  
+  const board = createBoard(BOARD_SIZE, NUMBER_OF_MINES)
+  const boardElement = document.querySelector(".board")
+  const minesLeftText = document.querySelector("[data-mine-count]")
+  const messageText = document.querySelector(".subtext")
+  
+  board.forEach(row => {
+    row.forEach(tile => {
+      boardElement.append(tile.element)
+      tile.element.addEventListener("click", () => {
+        revealTile(board, tile)
+        checkGameEnd()
+      })
+      tile.element.addEventListener("contextmenu", e => {
+        e.preventDefault()
+        flagTile(tile)
+        listMinesLeft()
+      })
+    })
+  })
+  boardElement.style.setProperty("--size", BOARD_SIZE)
+  minesLeftText.textContent = NUMBER_OF_MINES
+  
+  function listMinesLeft() {
+    const flaggedTilesCount = board.reduce((count, row) => {
+      return (
+        count + row.filter(tile => tile.status === TILE_STATUSES.FLAGGED).length
+      )
+    }, 0)
+  
+    minesLeftText.textContent = NUMBER_OF_MINES - flaggedTilesCount
+  }
+  
+  function checkGameEnd() {
+    const win = checkWin(board)
+    const lose = checkLose(board)
+  
+    if (win || lose) {
+      boardElement.addEventListener("click", { capture: true })
+      boardElement.addEventListener("contextmenu", { capture: true })
+    }
+  
+    if (win) {
+      messageText.textContent = "You Win"
+    }
+    if (lose) {
+      messageText.textContent = "You Lose"
+      board.forEach(row => {
+        row.forEach(tile => {
+          if (tile.status === TILE_STATUSES.FLAGGED) flagTile(tile)
+          if (tile.mine) revealTile(board, tile)
+        })
+      })
+    }
+  }
+  
+</script>
+</body>
+</html>
