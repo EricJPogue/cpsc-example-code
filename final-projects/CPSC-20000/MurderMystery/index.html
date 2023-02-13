@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css"> <!--Links CSS sheet-->
+    <script src="index.js"></script> <!--Link to external JS file-->
+    <link rel="icon" href="logo.ico"> Logo icon in tab-->
+    <title>Murder Mystery</title>
+</head>
+
+<body>
+    <img id="titleLogo" src="titleLogo.png">
+    <p id="titleText">[press space to begin]</p>
+
+    <p id="credit" class="hidden credit"></p>
+    <p id="intro1" class="hidden intros"></p>
+    <p id="intro2" class="hidden intros"></p>
+    <p style="color:rgb(209, 0, 0)" id="intro3" class="hidden intros"></p>
+    <p id="intro4" class="hidden intros"></p>
+    <p id="intro5" class="hidden intros"></p>
+    <p id="intro6" class="hidden intros"></p>
+    <p id="suspects1" class="hidden suspects"></p>
+    <p id="suspects2" class="hidden suspects"></p>
+    <p id="suspects3" class="hidden suspects"></p>
+    <p id="suspects4" class="hidden suspects"></p>
+    <p id="suspects5" class="hidden suspects"></p>
+    <p id="suspects6" class="hidden suspects"></p>
+    <p id="suspects7" class="hidden suspects"></p>
+    <p id="suspects8" class="hidden suspects"></p>
+
+    <img id="mikeLogo" onclick="userMike()" class="hidden killerLogos" src="mikeLogo.png">
+    <img id="janeLogo" onclick="userJane()" class="hidden killerLogos" src="janeLogo.png">
+    <img id="ericLogo" onclick="userEric()" class="hidden killerLogos" src="ericLogo.png">
+    <img id="johnLogo" onclick="userJohn()" class="hidden killerLogos" src="johnLogo.png">
+    <img id="emilyLogo" onclick="userEmily()" class="hidden killerLogos" src="emilyLogo.png">
+
+    <img id="victimLogo" class="hidden victimLogo" src="victimLogo.png">
+    <img id="weaponLogo" class="hidden weaponLogo" src="weaponLogo.png">
+    <img id="weaponSprite" class="hidden weaponSprite" src="knifeLogo.png">
+    <img id="maleLogo" class="hidden gender" src="maleLogo.png">
+    <img id="femaleLogo" class="hidden gender" src="femaleLogo.png">
+    <h2 id="victimName" class="hidden victimName"></h2>
+
+    <p id="correct" style="color:rgb(0, 125, 31)" class="hidden"></p>
+    <p id="wrong" style="color:rgb(138, 0, 0)" class="hidden"></p>
+    <p id="playAgain" class=" suspects"></p>
+
+
+</body>

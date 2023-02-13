@@ -1,0 +1,326 @@
+@font-face { font-family: invasion; src: url("invasion.ttf"); } 
+/*Imports custom font*/
+
+.hidden {
+  display: none;
+}
+
+body {
+  background-color: black;
+  background-image: url('darkTexture.jpg');
+  background-size: cover;
+}
+
+#titleText {
+  color: #dadada;
+  font-family: "invasion";
+  font-size: 30px;
+  position:absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  vertical-align: middle;
+  /* Custom font is being used alongside a black text stroke */
+}
+
+#titleLogo {
+  position:absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  vertical-align: middle;
+}
+
+p {
+  color: #dadada;
+  font-family: "invasion";
+  font-size: 30px;
+  position:absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  vertical-align: middle;
+  /* Custom font is being used alongside a black text stroke */
+}
+
+.victimName {
+  color: #1f1e1e;
+  font-family: "invasion";
+  font-size: 20px;
+  position:absolute;
+  top: 55%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+
+  animation: fade-in-out 8s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#credit {
+  animation: fade-in-out 5s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.intros {
+  font-size: 20px;
+  animation: fade-in-out 7s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.suspects {
+  font-size: 20px;
+  animation: fade-in-out 8s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.killerLogos {
+  width: 200px;
+  animation: fade-in 4s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#mikeLogo {
+  position:absolute;
+  top: 60%;
+  left: 16.5%;
+  transform: translate(-50%, -50%);
+}
+
+#janeLogo {
+  position:absolute;
+  top: 60.5%;
+  left: 32.5%;
+  transform: translate(-50%, -50%);
+}
+
+#ericLogo {
+  position:absolute;
+  top: 60%;
+  left: 48.5%;
+  transform: translate(-50%, -50%);
+}
+
+#johnLogo {
+  position:absolute;
+  top: 60%;
+  left: 64.5%;
+  transform: translate(-50%, -50%);
+}
+
+#emilyLogo {
+  position:absolute;
+  top: 60.5%;
+  left: 80.5%;
+  transform: translate(-50%, -50%);
+}
+
+.victimLogo {
+  width: 500px;
+
+  /* Move the image to the left middle of the screen */
+  position: absolute;
+  top: 35%;
+  left: 15%;
+  transform: translateY(-50%);
+
+  animation: fade-in-out 8s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.weaponLogo {
+  width: 500px;
+
+  /* Move the image to the left middle of the screen */
+  position: absolute;
+  top: 36%;
+  right: 20%;
+  transform: translateY(-50%);
+
+  animation: fade-in-out 8s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.weaponSprite {
+  width: 200px;
+
+  /* Move the image to the left middle of the screen */
+  position: absolute;
+  top: 49%;
+  right: 30%;
+  transform: translateY(-50%);
+
+  animation: fade-in-out 8s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gender {
+  width: 200px;
+
+  /* Move the image to the left middle of the screen */
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%);
+
+  animation: fade-in-out 8s linear;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#titleText {
+  animation: fade-in-out 2s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#suspects8 {
+  position: absolute;
+  top: 35%;
+
+  animation: fade-in-out 2s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#playAgain {
+  position: absolute;
+  top: 65%;
+
+  animation: fade-in-out 2s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+button {
+    background-color: #d32f2f;
+    color: #212121;
+  }
+  

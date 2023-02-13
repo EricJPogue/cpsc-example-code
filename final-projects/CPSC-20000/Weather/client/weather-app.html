@@ -1,0 +1,54 @@
+<<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Weather App</title>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+	
+	</head>
+	<body>
+		<!-- Display Header -->
+		<h1 class="heading">WeatherApp</h1> 
+		<section class="search-loc">
+			<div class= "search">
+				<input type="text" class="search-field" spellcheck="false" placeholder="Search for location" required>  <!-- Search box for user input -->
+				<button><strong>Search</strong></button>           <!-- Search button -->
+			</div>
+			<div class ="detectLoc">
+				<button><strong>Detect My Location</strong></button>  <!-- Detect user location button -->
+			</div>
+		</section>
+		<section class="current-city">
+			<div id ="city">
+				<p></p>
+			</div>
+		</section>
+	
+		<section class="weather-and-time">
+			<p><span><b>CURRENT WEATHER</b></span></p>
+			<p><span id="current-time"></span></p>  <!-- Display current time -->
+		</section>
+	
+		<section class="weather-display">  <!-- Display the weather -->
+			<li class="container">
+				<figure>
+					<img src="" alt="" class="icon" />
+				</figure>
+				<div class="temp"></div>
+				<div class="feels-like"></div>
+				<div class="description"></div>
+				<div class="humidity"></div>
+				<div class ="coord"></div>
+			</li>
+		</section>
+	
+		<script>                                     
+			var time = new Date(); 
+			document.getElementById("current-time").innerHTML = time.toLocaleTimeString();    // Get current time
+			</script>
+		<script src="app.js" defer></script>
+		
+	</body>
+	</html>

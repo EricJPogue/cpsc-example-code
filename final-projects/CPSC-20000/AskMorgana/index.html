@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ask Morgana</title>
+</head>
+<body>
+<audio controls loop>
+    <source src="Joker.mp3" type="audio/mpeg">
+</audio>
+<h1>Ask Morgana with the options on the side and he will respond to them acorrendly</h1>
+<button onclick="Morgana1()"><img src="Text1.png"  style="width: 400px;"></button><br><br><br><br><br><br><br>
+<audio id="audio" src="Yes.mp3"></audio>
+<button onclick="Morgana2()"><img src="Text2.png"  style="width: 400px;"></button><br><br><br><br><br><br><br>
+<audio id="audio2" src="Cat.mp3"></audio>
+<button onclick="Morgana3()"><img src="Text3.png"  style="width: 400px;"></button><br><br><br><br><br><br><br>
+<audio id="audio3" src="Meow.mp3"></audio>
+<button onclick="Morgana4()"><img src="Text4.png"  style="width: 400px;"></button><br><br><br><br><br><br><br>
+<audio id="audio4" src="Treasure.m4a"></audio>
+<img src="Morgana.png" id="Morgana" style="width: 500px;px;height:600x;"> <img src="textbubble.png" id="Morgana2" style="width: 500px;px;height:600x;">
+
+
+
+<style>
+    body {
+        background-image: url('Mementos_P5.webp');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    button {
+        float: right;
+    }
+</style>
+
+<script>
+    function Morgana1() {
+        document.getElementById('Morgana').src='HappyMorgana.png';
+        document.getElementById('Morgana2').src='TextH.PNG';
+        var audio = document.getElementById("audio");
+        audio.play();
+    }
+    function Morgana2() {
+        document.getElementById('Morgana').src='Morgana_No.png';
+        document.getElementById('Morgana2').src='TextM.PNG';
+        var audio = document.getElementById("audio2");
+        audio.play();
+    }
+    function Morgana3() {
+        document.getElementById('Morgana').src='Morgan_what.png';
+        document.getElementById('Morgana2').src='TextS.PNG';
+        var audio = document.getElementById("audio3");
+        audio.play();
+    }
+    function Morgana4() {
+        document.getElementById('Morgana').src='Wow_M.PNG';
+        document.getElementById('Morgana2').src='TextW.PNG';
+        var audio = document.getElementById("audio4");
+        audio.play();
+
+    }
+</script>
+</body>
+</html>
